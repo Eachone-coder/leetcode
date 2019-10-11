@@ -25,9 +25,19 @@ class Solution
      */
     public function sortArrayByParity($A)
     {
-
+        $len = count($A);
+        $j = 0;
+        for ($i = 0; $i < $len; $i++) {
+            if (($A[$i] % 2 === 0)) {
+                $temp = $A[$j];
+                $A[$j] = $A[$i];
+                $A[$i] = $temp;
+                $j++;
+            }
+        }
+        return $A;
     }
 }
 
 $solution = new Solution();
-var_dump($solution->sortArrayByParity([3, 1, 2, 4]));
+var_dump($solution->sortArrayByParity([3, 2, 1, 4]));

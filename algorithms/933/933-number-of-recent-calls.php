@@ -43,3 +43,6 @@ class RecentCounter
  * $obj = RecentCounter();
  * $ret_1 = $obj->ping($t);
  */
+
+$obj = new RecentCounter();
+$ret_1 = $obj->ping(1);

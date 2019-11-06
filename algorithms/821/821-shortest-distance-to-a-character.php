@@ -24,25 +24,29 @@ class Solution
      */
     public function shortestToChar($S, $C)
     {
-        $len = strlen($S);
+        $leftKeys = [];
+        $rightKeys = [];
         $left = [];
-        $temp = -1;
-        $end = 0;
-
-        for ($i = 0; $i < $len; $i++) {
+        $right = [];
+        for ($i = 0, $len = strlen($S); $i < $len; $i++) {
             if ($S[$i] == $C) {
-                $left[$i] = 0;
-
-                
-                for ($j = $temp; $j > $end; $j--) {
-
-                }
-            } else {
-                $end = $i;
+                $leftKeys[] = $len - $i - 1;
+                $rightKeys[] = $i;
             }
         }
+
+        for ($i = 0, $len = strlen($S); $i < $len; $i++) {
+            if ($S[$i] == $C) {
+                $left[$i] = 0;
+                $right[$i] = 0;
+            }else{
+                $left[$i] = $i;
+                $right[$i] = $i;
+            }
+        }
+
         return $left;
     }
 }
 
-var_dump((new Solution())->shortestToChar('loveleetcode', 'e'));
+print_r((new Solution())->shortestToChar('loveleetcode', 'e'));
